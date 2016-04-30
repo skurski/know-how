@@ -6,12 +6,12 @@ import java.util.concurrent.BlockingQueue;
 public final class Consumer implements Runnable {
     private final BlockingQueue<String> queue;
 
-    public Consumer (BlockingQueue queue) {
+    public Consumer(BlockingQueue queue) {
         this.queue = queue;
     }
 
     @Override
-    public void run () {
+    public void run() {
         while (true) {
             try {
                 String str = queue.take();

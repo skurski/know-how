@@ -7,11 +7,12 @@ public class BinarySearchTree<E> {
     private Node<E> root;
     private int size = 0;
 
-    public BinarySearchTree() {}
+    public BinarySearchTree() {
+    }
 
     public void add(E elem) {
         if (root == null) {
-            root = new Node<E>(elem,null,null,null);
+            root = new Node<E>(elem, null, null, null);
             size++;
             return;
         }
@@ -32,11 +33,10 @@ public class BinarySearchTree<E> {
             }
         } while (tmp != null);
 
-        Node<E> newNode = new Node<E>(elem,parent,null,null);
+        Node<E> newNode = new Node<E>(elem, parent, null, null);
         if (cmp < 0) {
             parent.left = newNode;
-        }
-        else {
+        } else {
             parent.right = newNode;
         }
 
@@ -127,7 +127,6 @@ public class BinarySearchTree<E> {
 //        }
 
 
-
         if (tmp.left == null) {
             tmp.parent = tmp.right;
             System.out.println("a");
@@ -180,7 +179,7 @@ public class BinarySearchTree<E> {
         Node<E> left;
         Node<E> right;
 
-        Node(E elem,Node<E> parent,Node<E> left,Node<E> right) {
+        Node(E elem, Node<E> parent, Node<E> left, Node<E> right) {
             item = elem;
             this.parent = parent;
             this.left = left;

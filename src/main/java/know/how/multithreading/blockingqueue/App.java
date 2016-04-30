@@ -10,13 +10,13 @@ public final class App {
     private final Producer producer;
     private final Consumer consumer;
 
-    public App () {
+    public App() {
         this.queue = new ArrayBlockingQueue<>(10);
         this.consumer = new Consumer(queue);
         this.producer = new Producer(queue);
     }
 
-    public final void go () {
+    public final void go() {
         Thread consumerThread = new Thread(consumer);
         Thread producerThread = new Thread(producer);
 
@@ -26,7 +26,7 @@ public final class App {
 
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         App app = new App();
         app.go();
 

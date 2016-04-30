@@ -1,11 +1,11 @@
-package know.how.tasks;
+package know.how.codingtasks;
 
 
 public class Reverse {
 
     public static int[] halfArrayReverse(int[] arr) {
         int start = 0;
-        int end = arr.length-1;
+        int end = arr.length - 1;
         while (start < end) {
             int temp = arr[start];
             arr[start] = arr[end];
@@ -18,12 +18,12 @@ public class Reverse {
     }
 
     public static int[] wholeArrayReverse(int[] arr) {
-        int n = arr.length-1;
+        int n = arr.length - 1;
         int i;
-        for (i=0; i<=n; i++) {
+        for (i = 0; i <= n; i++) {
             int temp = arr[i];
-            arr[i] = arr[n-i];
-            arr[n-i] = temp;
+            arr[i] = arr[n - i];
+            arr[n - i] = temp;
         }
         System.out.println("for iteration: " + i);
         return arr;
@@ -36,7 +36,7 @@ public class Reverse {
     public static String rawStringReverse(String str) {
         char[] charArr = str.toCharArray();
         int start = 0;
-        int end = charArr.length-1;
+        int end = charArr.length - 1;
         while (start < end) {
             char temp = charArr[start];
             charArr[start] = charArr[end];

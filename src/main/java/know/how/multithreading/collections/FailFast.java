@@ -7,11 +7,11 @@ import java.util.*;
  * Fail-fast iterator means that it fail in fast and clean way
  * ConcurrentModificationException will be thrown if one thread is
  * trying to change collection (add, delete) and other iterate through it
- *
+ * <p/>
  * Exception may be thrown also in single threaded environment if we
  * create iterator and during iteration we will try to modify collection
  * using methods of collection not methods of iterator interface
- *
+ * <p/>
  * Fail-safe iterator creates a copy of collection and iterate through it
  * No exception but iterator may return not actual data (if other thread
  * change original collection) and it also require to create copy of
@@ -23,7 +23,7 @@ final class FailFast {
     private static class SingleThread implements Runnable {
         private final List<String> list;
 
-        SingleThread (List<String> list) {
+        SingleThread(List<String> list) {
             this.list = list;
         }
 
@@ -40,7 +40,7 @@ final class FailFast {
     private static class One implements Runnable {
         private final Map<Integer, String> map;
 
-        One (Map<Integer,String> map) {
+        One(Map<Integer, String> map) {
             this.map = map;
         }
 
@@ -59,23 +59,23 @@ final class FailFast {
     }
 
     private static class Two implements Runnable {
-        private final Map<Integer,String> map;
+        private final Map<Integer, String> map;
 
-        Two (Map<Integer,String> map) {
+        Two(Map<Integer, String> map) {
             this.map = map;
         }
 
         @Override
         public void run() {
             while (true) {
-                for (Map.Entry<Integer,String> entry: map.entrySet()) {
+                for (Map.Entry<Integer, String> entry : map.entrySet()) {
                     entry.setValue("Else");
                 }
             }
         }
     }
 
-    public static void main (String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         //Fail-fast in single threaded env
         List<String> list = new ArrayList<>();
         list.add("one");

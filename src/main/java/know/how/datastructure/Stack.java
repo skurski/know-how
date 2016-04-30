@@ -73,7 +73,7 @@ public final class Stack<E> implements Lifo<E> {
     }
 
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Stack<Integer> stack = new Stack<>();
         stack.push(10);
         stack.push(55);
@@ -96,6 +96,6 @@ public final class Stack<E> implements Lifo<E> {
 //        System.out.println();
 //        System.out.println("stack pop: " + stack.pop());
 
-        ConcurrentHashMap<String,String> map = new ConcurrentHashMap<>();
-     }
+        ConcurrentHashMap<String, String> map = new ConcurrentHashMap<>();
+    }
 }

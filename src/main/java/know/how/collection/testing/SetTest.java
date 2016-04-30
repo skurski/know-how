@@ -5,7 +5,7 @@ import java.util.*;
 
 public class SetTest {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         Set<String> hashSet = new HashSet<>();
         hashSet.add("John");
@@ -35,7 +35,7 @@ public class SetTest {
         Queue<String> heap = new PriorityQueue<>();
 
 
-        Map<String,String> map = new HashMap<>();
-        Map<String,String> linkedMap = new LinkedHashMap<>();
+        Map<String, String> map = new HashMap<>();
+        Map<String, String> linkedMap = new LinkedHashMap<>();
     }
 }

@@ -11,43 +11,43 @@ import java.util.List;
 
 public class InfoAboutClass {
 
-    public static void main (String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
 
         // 3 ways to get object of Class
-        Class clazz = Class.forName("knowhow.reflection.Example");
+        Class clazz = Class.forName("know.how.reflection.Example");
 //        Class clazz = knowhow.reflection.Example.class;
 //        Class clazz = new Example().getClass();
 
         Object objInFly = clazz.newInstance();
 
         Class[] interfaces = clazz.getInterfaces();
-        for (Class cls: interfaces) {
+        for (Class cls : interfaces) {
             System.out.println("Interface: " + cls.getName());
         }
 
         Field[] fields = clazz.getDeclaredFields();
-        for (Field field: fields) {
+        for (Field field : fields) {
             field.setAccessible(true);
             Object value = field.get(objInFly);
             TestAnnotation ann = field.getAnnotation(TestAnnotation.class);
             System.out.println("Field name: " + field.getName()
-                            + ", value: " + value
-                            + ", annotation: " + ann.value());
+                    + ", value: " + value
+                    + ", annotation: " + ann.value());
 
         }
 
         Method[] methods = clazz.getDeclaredMethods();
-        for (Method method: methods) {
+        for (Method method : methods) {
             System.out.println("Method name: " + method.getName());
 
             Annotation[] annotations = method.getAnnotations();
-            for (Annotation annotation: annotations) {
+            for (Annotation annotation : annotations) {
                 System.out.println("Method annotation: "
                         + annotation.toString());
             }
 
             Class[] parameters = method.getParameterTypes();
-            for (Class cls: parameters) {
+            for (Class cls : parameters) {
                 System.out.println("Method parameter: " + cls.getName());
             }
 
@@ -61,7 +61,7 @@ public class InfoAboutClass {
 class Example implements Serializable {
     @TestAnnotation
     private String text = "Text";
-    @TestAnnotation (value="another")
+    @TestAnnotation(value = "another")
     private int number = 10;
 
     public Example() {

@@ -18,7 +18,10 @@ class BankAccount {
         if (this.lock.tryLock()) {
             // Wait to simulate io like database access ...
             System.out.println("Withdraw: thread simulate db access: " + Thread.currentThread().getName());
-            try {Thread.sleep(10l);} catch (InterruptedException e) {}
+            try {
+                Thread.sleep(10l);
+            } catch (InterruptedException e) {
+            }
             balance -= amount;
             return true;
         }
@@ -29,7 +32,10 @@ class BankAccount {
         if (this.lock.tryLock()) {
             // Wait to simulate io like database access ...
             System.out.println("Deposit: thread simulate db access: " + Thread.currentThread().getName());
-            try {Thread.sleep(10l);} catch (InterruptedException e) {}
+            try {
+                Thread.sleep(10l);
+            } catch (InterruptedException e) {
+            }
             balance += amount;
             return true;
         }

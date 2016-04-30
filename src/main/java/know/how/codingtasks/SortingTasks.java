@@ -32,7 +32,7 @@ public class SortingTasks {
 
     public static void main(String[] args) {
 
-        int[] array = {0,0,0,1,1,1,0,1,1,0,0,1,0,1,1,1};
+        int[] array = {0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1};
 
         sort(array);
 

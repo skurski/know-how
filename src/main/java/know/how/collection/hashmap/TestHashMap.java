@@ -6,7 +6,7 @@ import java.util.Map;
  * Test how HashMap works inside
  * HashMapImpl is a copy of java.util.HashMap
  * Only for educational purpose!
- *
+ * <p/>
  * Conclusions:
  * 1) HashMap can take null keys and null values
  * 2) The object with the same key will be overridden
@@ -16,12 +16,11 @@ import java.util.Map;
  * 6) Hash table inside HashMap is array of Entry<K,V>
  * 7) Entry obj has: key, value, hash, next (pointer to next Entry obj)
  * 8) If keys has the same hash code they are inserted into the same bucket
- *    and creates single linked list, new element is inserted at the
- *    beginning of the list
+ * and creates single linked list, new element is inserted at the
+ * beginning of the list
  * 9) HashMap constructors can take initial capacity and load factor
  * 10) Default initial capacity is 16
  * 11) Default load factor is 0.75
- *
  */
 public class TestHashMap {
 

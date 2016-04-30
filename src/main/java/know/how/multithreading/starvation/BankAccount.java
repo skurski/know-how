@@ -12,7 +12,10 @@ class BankAccount {
 
     synchronized double getBalance() {
         // Wait to simulate io like database access ...
-        try {Thread.sleep(100l);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(100l);
+        } catch (InterruptedException e) {
+        }
         return balance;
     }
 
@@ -45,7 +48,10 @@ class BankAccount {
         balanceMonitorThread1.start();
 
         // And later, transaction threads tries to execute.
-        try {Thread.sleep(100l);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(100l);
+        } catch (InterruptedException e) {
+        }
         transactionThread1.start();
         transactionThread2.start();
 
@@ -55,14 +61,18 @@ class BankAccount {
 
 class BalanceMonitor implements Runnable {
     private BankAccount account;
-    BalanceMonitor(BankAccount account) { this.account = account;}
+
+    BalanceMonitor(BankAccount account) {
+        this.account = account;
+    }
+
     boolean alreadyNotified = false;
 
     @Override
     public void run() {
         System.out.format("%s started execution%n", Thread.currentThread().getName());
         while (true) {
-            if(account.getBalance() <= 0) {
+            if (account.getBalance() <= 0) {
                 // send email, or sms, clouds of smoke ...
                 break;
             }

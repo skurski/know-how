@@ -8,12 +8,13 @@ public class LinkedListImpl<E> {
     private Node<E> last = null;
     private int size = 0;
 
-    public LinkedListImpl() {}
+    public LinkedListImpl() {
+    }
 
     public void add(E elem) {
         Node<E> node = last;
         System.out.println("last: " + last);
-        Node<E> newNode = new Node<E>(elem,node,null);
+        Node<E> newNode = new Node<E>(elem, node, null);
         if (last == null)
             first = newNode;
         else
@@ -27,7 +28,7 @@ public class LinkedListImpl<E> {
         if (index >= size)
             throw new ArrayIndexOutOfBoundsException();
         Node<E> node = first;
-        for (int i=0; i<index; i++) {
+        for (int i = 0; i < index; i++) {
             node = node.next;
         }
         return node.item;
@@ -79,7 +80,7 @@ public class LinkedListImpl<E> {
 
     public void print() {
         Node<E> node = first;
-        for (int i=0; i<size; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.println("i: " + node.item);
             node = node.next;
         }

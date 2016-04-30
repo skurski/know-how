@@ -12,22 +12,28 @@ class BankAccount {
 
     void withdraw(double amount) {
         // Wait to simulate io like database access ...
-        try {Thread.sleep(10l);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(10l);
+        } catch (InterruptedException e) {
+        }
         balance -= amount;
     }
 
     void deposit(double amount) {
         // Wait to simulate io like database access ...
-        try {Thread.sleep(10l);} catch (InterruptedException e) {}
+        try {
+            Thread.sleep(10l);
+        } catch (InterruptedException e) {
+        }
         balance += amount;
     }
 
     static void transfer(BankAccount from, BankAccount to, double amount) {
-        synchronized(from) {
+        synchronized (from) {
             from.withdraw(amount);
             System.out.println("Monitor lock: " + from + ", " +
                     "waiting for monitor lock: " + to);
-            synchronized(to) {
+            synchronized (to) {
                 to.deposit(amount);
                 System.out.println("Monitor lock: " + to);
             }

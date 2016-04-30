@@ -6,16 +6,15 @@ import java.util.concurrent.*;
  * ExecutorService framework
  * Allows to submit runnable (callable) tasks and execute them
  * using fixed number of threads (thread pool)
- *
+ * <p/>
  * Executor interface has one method: execute(Runnable)
- *
+ * <p/>
  * ExecutorService interface has more methods, for example:
  * submit(Runnable), submit(Callable), shutdown(), awaitTermination(int timeout, unit),
  * shutdownNow() => stop executing tasks, return list of awaiting tasks
- *
+ * <p/>
  * submit method return Future object, Future<V> for Callable object
  * method get() of Future return null (for runnable) and value for callable
- *
  */
 final class ThreadPool {
 
@@ -57,7 +56,7 @@ final class ThreadPool {
         }
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
 
         ExecutorService executor = Executors.newFixedThreadPool(2);
         Future jobRun = executor.submit(new JobRun());

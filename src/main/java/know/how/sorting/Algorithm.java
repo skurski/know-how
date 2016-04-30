@@ -9,18 +9,18 @@ import java.util.Collections;
  */
 public class Algorithm {
 
-    public static int[] bubbleSort (int[] array) {
+    public static int[] bubbleSort(int[] array) {
         boolean flag = true;
 
         while (flag) {
             flag = false;
 
-            for (int i=1; i<array.length; i++) {
-                if (array[i-1] > array[i]) {
+            for (int i = 1; i < array.length; i++) {
+                if (array[i - 1] > array[i]) {
                     //swap and set the flag
                     int temp = array[i];
-                    array[i] = array[i-1];
-                    array[i-1] = temp;
+                    array[i] = array[i - 1];
+                    array[i - 1] = temp;
                     flag = true;
                 }
             }
@@ -29,10 +29,10 @@ public class Algorithm {
         return array;
     }
 
-    public static int[] selectionSort (int[] array) {
-        for (int i=0; i<array.length; i++) {
+    public static int[] selectionSort(int[] array) {
+        for (int i = 0; i < array.length; i++) {
             int idMin = i;
-            for (int j=i+1; j<array.length; j++) {
+            for (int j = i + 1; j < array.length; j++) {
                 if (array[j] < array[idMin]) {
                     idMin = j;
                 }
@@ -46,12 +46,12 @@ public class Algorithm {
         return array;
     }
 
-    public static int[] insertionSort (int[] array) {
-        for (int i=1; i<array.length; i++) {
+    public static int[] insertionSort(int[] array) {
+        for (int i = 1; i < array.length; i++) {
             int key = array[i];
-            int j=i;
-            while (j>0 && array[j-1] > key) {
-                array[j] = array[j-1];
+            int j = i;
+            while (j > 0 && array[j - 1] > key) {
+                array[j] = array[j - 1];
                 j--;
             }
             array[j] = key;
@@ -60,13 +60,13 @@ public class Algorithm {
         return array;
     }
 
-    public static int[] countingSort (int[] array, int max) {
-        int[] helper = new int[max+1];
-        for (int i=0; i<array.length; i++) {
+    public static int[] countingSort(int[] array, int max) {
+        int[] helper = new int[max + 1];
+        for (int i = 0; i < array.length; i++) {
             helper[array[i]]++;
         }
         int id = 0;
-        for (int i=0; i<helper.length; i++) {
+        for (int i = 0; i < helper.length; i++) {
             while (helper[i] > 0) {
                 array[id++] = i;
                 helper[i]--;
@@ -77,7 +77,7 @@ public class Algorithm {
     }
 
     public static int[] sortWithQuickSort(int[] array) {
-        quickSort(array, 0, array.length-1);
+        quickSort(array, 0, array.length - 1);
         return array;
     }
 
@@ -85,7 +85,7 @@ public class Algorithm {
         if (iStart < iEnd) {
             int pivot = partition(array, iStart, iEnd);
             quickSort(array, iStart, pivot);
-            quickSort(array, pivot+1, iEnd);
+            quickSort(array, pivot + 1, iEnd);
         }
     }
 
@@ -131,11 +131,11 @@ public class Algorithm {
         }
         pivot = j;
 
-        quickSortSimpler(array,head,pivot);
-        quickSortSimpler(array,pivot+1,tail);
+        quickSortSimpler(array, head, pivot);
+        quickSortSimpler(array, pivot + 1, tail);
     }
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         Arrays.sort(new Object[]{new Object(), new Object()});
         Collections.sort(new ArrayList<String>());
     }

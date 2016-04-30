@@ -14,21 +14,21 @@ import java.util.*;
  * backed by a "random access" data store (such as an array).  For sequential
  * access data (such as a linked list), {@link AbstractSequentialList} should
  * be used in preference to this class.
- *
+ * <p/>
  * <p>To implement an unmodifiable list, the programmer needs only to extend
  * this class and provide implementations for the {@link #get(int)} and
  * {@link List#size() size()} methods.
- *
+ * <p/>
  * <p>To implement a modifiable list, the programmer must additionally
  * override the {@link #set(int, Object) set(int, E)} method (which otherwise
  * throws an {@code UnsupportedOperationException}).  If the list is
  * variable-size the programmer must additionally override the
  * {@link #add(int, Object) add(int, E)} and {@link #remove(int)} methods.
- *
+ * <p/>
  * <p>The programmer should generally provide a void (no argument) and collection
  * constructor, as per the recommendation in the {@link Collection} interface
  * specification.
- *
+ * <p/>
  * <p>Unlike the other abstract collection implementations, the programmer does
  * <i>not</i> have to provide an iterator implementation; the iterator and
  * list iterator are implemented by this class, on top of the "random access"
@@ -37,17 +37,17 @@ import java.util.*;
  * {@link #set(int, Object) set(int, E)},
  * {@link #add(int, Object) add(int, E)} and
  * {@link #remove(int)}.
- *
+ * <p/>
  * <p>The documentation for each non-abstract method in this class describes its
  * implementation in detail.  Each of these methods may be overridden if the
  * collection being implemented admits a more efficient implementation.
- *
+ * <p/>
  * <p>This class is a member of the
  * <a href="{@docRoot}/../technotes/guides/collections/index.html">
  * Java Collections Framework</a>.
  *
- * @author  Josh Bloch
- * @author  Neal Gafter
+ * @author Josh Bloch
+ * @author Neal Gafter
  * @since 1.2
  */
 
@@ -62,16 +62,16 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
     /**
      * Appends the specified element to the end of this list (optional
      * operation).
-     *
+     * <p/>
      * <p>Lists that support this operation may place limitations on what
      * elements may be added to this list.  In particular, some
      * lists will refuse to add null elements, and others will impose
      * restrictions on the type of elements that may be added.  List
      * classes should clearly specify in their documentation any restrictions
      * on what elements may be added.
-     *
+     * <p/>
      * <p>This implementation calls {@code add(size(), e)}.
-     *
+     * <p/>
      * <p>Note that this implementation throws an
      * {@code UnsupportedOperationException} unless
      * {@link #add(int, Object) add(int, E)} is overridden.
@@ -79,13 +79,13 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * @param e element to be appended to this list
      * @return {@code true} (as specified by {@link Collection#add})
      * @throws UnsupportedOperationException if the {@code add} operation
-     *         is not supported by this list
-     * @throws ClassCastException if the class of the specified element
-     *         prevents it from being added to this list
-     * @throws NullPointerException if the specified element is null and this
-     *         list does not permit null elements
-     * @throws IllegalArgumentException if some property of this element
-     *         prevents it from being added to this list
+     *                                       is not supported by this list
+     * @throws ClassCastException            if the class of the specified element
+     *                                       prevents it from being added to this list
+     * @throws NullPointerException          if the specified element is null and this
+     *                                       list does not permit null elements
+     * @throws IllegalArgumentException      if some property of this element
+     *                                       prevents it from being added to this list
      */
     public boolean add(E e) {
         add(size(), e);
@@ -101,7 +101,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation always throws an
      * {@code UnsupportedOperationException}.
      *
@@ -117,7 +117,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation always throws an
      * {@code UnsupportedOperationException}.
      *
@@ -133,7 +133,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation always throws an
      * {@code UnsupportedOperationException}.
      *
@@ -149,7 +149,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation first gets a list iterator (with
      * {@code listIterator()}).  Then, it iterates over the list until the
      * specified element is found or the end of the list is reached.
@@ -159,9 +159,9 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      */
     public int indexOf(Object o) {
         ListIterator<E> it = listIterator();
-        if (o==null) {
+        if (o == null) {
             while (it.hasNext())
-                if (it.next()==null)
+                if (it.next() == null)
                     return it.previousIndex();
         } else {
             while (it.hasNext())
@@ -173,7 +173,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation first gets a list iterator that points to the end
      * of the list (with {@code listIterator(size())}).  Then, it iterates
      * backwards over the list until the specified element is found, or the
@@ -184,9 +184,9 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      */
     public int lastIndexOf(Object o) {
         ListIterator<E> it = listIterator(size());
-        if (o==null) {
+        if (o == null) {
             while (it.hasPrevious())
-                if (it.previous()==null)
+                if (it.previous() == null)
                     return it.nextIndex();
         } else {
             while (it.hasPrevious())
@@ -202,16 +202,16 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
     /**
      * Removes all of the elements from this list (optional operation).
      * The list will be empty after this call returns.
-     *
+     * <p/>
      * <p>This implementation calls {@code removeRange(0, size())}.
-     *
+     * <p/>
      * <p>Note that this implementation throws an
      * {@code UnsupportedOperationException} unless {@code remove(int
      * index)} or {@code removeRange(int fromIndex, int toIndex)} is
      * overridden.
      *
      * @throws UnsupportedOperationException if the {@code clear} operation
-     *         is not supported by this list
+     *                                       is not supported by this list
      */
     public void clear() {
         removeRange(0, size());
@@ -219,13 +219,13 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation gets an iterator over the specified collection
      * and iterates over it, inserting the elements obtained from the
      * iterator into this list at the appropriate position, one at a time,
      * using {@code add(int, E)}.
      * Many implementations will override this method for efficiency.
-     *
+     * <p/>
      * <p>Note that this implementation throws an
      * {@code UnsupportedOperationException} unless
      * {@link #add(int, Object) add(int, E)} is overridden.
@@ -251,16 +251,16 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * Returns an iterator over the elements in this list in proper sequence.
-     *
+     * <p/>
      * <p>This implementation returns a straightforward implementation of the
      * iterator interface, relying on the backing list's {@code size()},
      * {@code get(int)}, and {@code remove(int)} methods.
-     *
+     * <p/>
      * <p>Note that the iterator returned by this method will throw an
      * {@link UnsupportedOperationException} in response to its
      * {@code remove} method unless the list's {@code remove(int)} method is
      * overridden.
-     *
+     * <p/>
      * <p>This implementation can be made to throw runtime exceptions in the
      * face of concurrent modification, as described in the specification
      * for the (protected) {@link #modCount} field.
@@ -273,7 +273,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation returns {@code listIterator(0)}.
      *
      * @see #listIterator(int)
@@ -284,20 +284,20 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation returns a straightforward implementation of the
      * {@code ListIterator} interface that extends the implementation of the
      * {@code Iterator} interface returned by the {@code iterator()} method.
      * The {@code ListIterator} implementation relies on the backing list's
      * {@code get(int)}, {@code set(int, E)}, {@code add(int, E)}
      * and {@code remove(int)} methods.
-     *
+     * <p/>
      * <p>Note that the list iterator returned by this implementation will
      * throw an {@link UnsupportedOperationException} in response to its
      * {@code remove}, {@code set} and {@code add} methods unless the
      * list's {@code remove(int)}, {@code set(int, E)}, and
      * {@code add(int, E)} methods are overridden.
-     *
+     * <p/>
      * <p>This implementation can be made to throw runtime exceptions in the
      * face of concurrent modification, as described in the specification for
      * the (protected) {@link #modCount} field.
@@ -397,7 +397,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
         }
 
         public int previousIndex() {
-            return cursor-1;
+            return cursor - 1;
         }
 
         public void set(E e) {
@@ -430,7 +430,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * {@inheritDoc}
-     *
+     * <p/>
      * <p>This implementation returns a list that subclasses
      * {@code AbstractListImpl}.  The subclass stores, in private fields, the
      * offset of the subList within the backing list, the size of the subList
@@ -439,7 +439,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * of the subclass, one of which implements {@code RandomAccess}.
      * If this list implements {@code RandomAccess} the returned list will
      * be an instance of the subclass that implements {@code RandomAccess}.
-     *
+     * <p/>
      * <p>The subclass's {@code set(int, E)}, {@code get(int)},
      * {@code add(int, E)}, {@code remove(int)}, {@code addAll(int,
      * Collection)} and {@code removeRange(int, int)} methods all
@@ -447,21 +447,21 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * after bounds-checking the index and adjusting for the offset.  The
      * {@code addAll(Collection c)} method merely returns {@code addAll(size,
      * c)}.
-     *
+     * <p/>
      * <p>The {@code listIterator(int)} method returns a "wrapper object"
      * over a list iterator on the backing list, which is created with the
      * corresponding method on the backing list.  The {@code iterator} method
      * merely returns {@code listIterator()}, and the {@code size} method
      * merely returns the subclass's {@code size} field.
-     *
+     * <p/>
      * <p>All methods first check to see if the actual {@code modCount} of
      * the backing list is equal to its expected value, and throw a
      * {@code ConcurrentModificationException} if it is not.
      *
      * @throws IndexOutOfBoundsException if an endpoint index value is out of range
-     *         {@code (fromIndex < 0 || toIndex > size)}
-     * @throws IllegalArgumentException if the endpoint indices are out of order
-     *         {@code (fromIndex > toIndex)}
+     *                                   {@code (fromIndex < 0 || toIndex > size)}
+     * @throws IllegalArgumentException  if the endpoint indices are out of order
+     *                                   {@code (fromIndex > toIndex)}
      */
     public List<E> subList(int fromIndex, int toIndex) {
         return (this instanceof RandomAccess ?
@@ -479,7 +479,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * {@code e2} are <i>equal</i> if {@code (e1==null ? e2==null :
      * e1.equals(e2))}.)  In other words, two lists are defined to be
      * equal if they contain the same elements in the same order.<p>
-     *
+     * <p/>
      * This implementation first checks if the specified object is this
      * list. If so, it returns {@code true}; if not, it checks if the
      * specified object is a list. If not, it returns {@code false}; if so,
@@ -503,7 +503,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
         while (e1.hasNext() && e2.hasNext()) {
             E o1 = e1.next();
             Object o2 = e2.next();
-            if (!(o1==null ? o2==null : o1.equals(o2)))
+            if (!(o1 == null ? o2 == null : o1.equals(o2)))
                 return false;
         }
         return !(e1.hasNext() || e2.hasNext());
@@ -511,7 +511,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
 
     /**
      * Returns the hash code value for this list.
-     *
+     * <p/>
      * <p>This implementation uses exactly the code that is used to define the
      * list hash function in the documentation for the {@link List#hashCode}
      * method.
@@ -521,7 +521,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
     public int hashCode() {
         int hashCode = 1;
         for (E e : this)
-            hashCode = 31*hashCode + (e==null ? 0 : e.hashCode());
+            hashCode = 31 * hashCode + (e == null ? 0 : e.hashCode());
         return hashCode;
     }
 
@@ -531,13 +531,13 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * Shifts any succeeding elements to the left (reduces their index).
      * This call shortens the list by {@code (toIndex - fromIndex)} elements.
      * (If {@code toIndex==fromIndex}, this operation has no effect.)
-     *
+     * <p/>
      * <p>This method is called by the {@code clear} operation on this list
      * and its subLists.  Overriding this method to take advantage of
      * the internals of the list implementation can <i>substantially</i>
      * improve the performance of the {@code clear} operation on this list
      * and its subLists.
-     *
+     * <p/>
      * <p>This implementation gets a list iterator positioned before
      * {@code fromIndex}, and repeatedly calls {@code ListIterator.next}
      * followed by {@code ListIterator.remove} until the entire range has
@@ -545,11 +545,11 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * time, this implementation requires quadratic time.</b>
      *
      * @param fromIndex index of first element to be removed
-     * @param toIndex index after last element to be removed
+     * @param toIndex   index after last element to be removed
      */
     protected void removeRange(int fromIndex, int toIndex) {
         ListIterator<E> it = listIterator(fromIndex);
-        for (int i=0, n=toIndex-fromIndex; i<n; i++) {
+        for (int i = 0, n = toIndex - fromIndex; i < n; i++) {
             it.next();
             it.remove();
         }
@@ -560,7 +560,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * Structural modifications are those that change the size of the
      * list, or otherwise perturb it in such a fashion that iterations in
      * progress may yield incorrect results.
-     *
+     * <p/>
      * <p>This field is used by the iterator and list iterator implementation
      * returned by the {@code iterator} and {@code listIterator} methods.
      * If the value of this field changes unexpectedly, the iterator (or list
@@ -569,7 +569,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
      * {@code set} or {@code add} operations.  This provides
      * <i>fail-fast</i> behavior, rather than non-deterministic behavior in
      * the face of concurrent modification during iteration.
-     *
+     * <p/>
      * <p><b>Use of this field by subclasses is optional.</b> If a subclass
      * wishes to provide fail-fast iterators (and list iterators), then it
      * merely has to increment this field in its {@code add(int, E)} and
@@ -589,7 +589,7 @@ public abstract class AbstractListImpl<E> extends AbstractCollection<E> implemen
     }
 
     private String outOfBoundsMsg(int index) {
-        return "Index: "+index+", Size: "+size();
+        return "Index: " + index + ", Size: " + size();
     }
 }
 
@@ -615,13 +615,13 @@ class SubList<E> extends AbstractListImpl<E> {
     public E set(int index, E element) {
         rangeCheck(index);
         checkForComodification();
-        return l.set(index+offset, element);
+        return l.set(index + offset, element);
     }
 
     public E get(int index) {
         rangeCheck(index);
         checkForComodification();
-        return l.get(index+offset);
+        return l.get(index + offset);
     }
 
     public int size() {
@@ -632,7 +632,7 @@ class SubList<E> extends AbstractListImpl<E> {
     public void add(int index, E element) {
         rangeCheckForAdd(index);
         checkForComodification();
-        l.add(index+offset, element);
+        l.add(index + offset, element);
         this.modCount = l.modCount;
         size++;
     }
@@ -640,7 +640,7 @@ class SubList<E> extends AbstractListImpl<E> {
     public E remove(int index) {
         rangeCheck(index);
         checkForComodification();
-        E result = l.remove(index+offset);
+        E result = l.remove(index + offset);
         this.modCount = l.modCount;
         size--;
         return result;
@@ -648,9 +648,9 @@ class SubList<E> extends AbstractListImpl<E> {
 
     protected void removeRange(int fromIndex, int toIndex) {
         checkForComodification();
-        l.removeRange(fromIndex+offset, toIndex+offset);
+        l.removeRange(fromIndex + offset, toIndex + offset);
         this.modCount = l.modCount;
-        size -= (toIndex-fromIndex);
+        size -= (toIndex - fromIndex);
     }
 
     public boolean addAll(Collection<? extends E> c) {
@@ -660,11 +660,11 @@ class SubList<E> extends AbstractListImpl<E> {
     public boolean addAll(int index, Collection<? extends E> c) {
         rangeCheckForAdd(index);
         int cSize = c.size();
-        if (cSize==0)
+        if (cSize == 0)
             return false;
 
         checkForComodification();
-        l.addAll(offset+index, c);
+        l.addAll(offset + index, c);
         this.modCount = l.modCount;
         size += cSize;
         return true;
@@ -679,7 +679,7 @@ class SubList<E> extends AbstractListImpl<E> {
         rangeCheckForAdd(index);
 
         return new ListIterator<E>() {
-            private final ListIterator<E> i = l.listIterator(index+offset);
+            private final ListIterator<E> i = l.listIterator(index + offset);
 
             public boolean hasNext() {
                 return nextIndex() < size;
@@ -744,7 +744,7 @@ class SubList<E> extends AbstractListImpl<E> {
     }
 
     private String outOfBoundsMsg(int index) {
-        return "Index: "+index+", Size: "+size;
+        return "Index: " + index + ", Size: " + size;
     }
 
     private void checkForComodification() {

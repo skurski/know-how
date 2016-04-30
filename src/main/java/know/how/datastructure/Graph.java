@@ -13,7 +13,7 @@ import java.util.List;
  * a Vertex object and have linked list inside with vertices
  * (really Edge objects are used and there are pointing to the specific Vertex)
  *
- * @param <E>   element that is store in the graph vertex
+ * @param <E> element that is store in the graph vertex
  */
 public final class Graph<E> {
     private final Object[] adjacencyList;
@@ -21,24 +21,26 @@ public final class Graph<E> {
 
     /**
      * Constructor initiate adjacency list based on the size of array
-     * @param vertices  array of objects that are stored in the graph
+     *
+     * @param vertices array of objects that are stored in the graph
      */
     public Graph(E[] vertices) {
         adjacencyList = new Object[vertices.length];
-        for (E elem: vertices) {
+        for (E elem : vertices) {
             adjacencyList[size++] = new Vertex<>(elem);
         }
     }
 
     /**
      * Indexes are used to map numbers to specific Vertices
+     *
      * @param index
      * @param neighbors
      */
     public final void addEdges(int index, int[] neighbors) {
         if (neighbors != null) {
             List<Edge<E>> edges = new LinkedList<>();
-            for (int id: neighbors) {
+            for (int id : neighbors) {
                 edges.add(new Edge<E>((Vertex<E>) adjacencyList[id]));
             }
             ((Vertex<E>) adjacencyList[index]).setEdges(edges);
@@ -50,7 +52,7 @@ public final class Graph<E> {
     }
 
     public void printGraph() {
-        for (Object obj: adjacencyList) {
+        for (Object obj : adjacencyList) {
             System.out.println(((Vertex<E>) obj).elem);
         }
     }
@@ -92,7 +94,7 @@ public final class Graph<E> {
     }
 
     private Vertex<E> getUnvisitedChildVertex(Vertex<E> v) {
-        for (Edge<E> edge: v.edges) {
+        for (Edge<E> edge : v.edges) {
             if (edge.to.visited == true)
                 continue;
             return edge.to;
@@ -136,7 +138,7 @@ public final class Graph<E> {
     }
 
     private void clearVisitedVertex() {
-        for (Object obj: adjacencyList) {
+        for (Object obj : adjacencyList) {
             ((Vertex<E>) obj).visited = false;
         }
     }

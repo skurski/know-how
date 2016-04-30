@@ -34,6 +34,7 @@ public class StarvationTest2 {
             }
         }
     }
+
     private static class ThreadDemo2 extends Thread {
         public void run() {
             while (true) {

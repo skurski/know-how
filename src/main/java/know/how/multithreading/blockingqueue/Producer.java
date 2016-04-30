@@ -8,7 +8,7 @@ public final class Producer implements Runnable {
     private final BlockingQueue<String> queue;
     private final Random random;
     private final String[] values = {
-          "One",
+            "One",
             "Two",
             "Three",
             "Four",
@@ -20,13 +20,13 @@ public final class Producer implements Runnable {
             "Ten"
     };
 
-    public Producer (BlockingQueue queue) {
+    public Producer(BlockingQueue queue) {
         this.queue = queue;
         random = new Random();
     }
 
     @Override
-    public void run () {
+    public void run() {
         int i = 0;
         while (i < 20) {
             try {
