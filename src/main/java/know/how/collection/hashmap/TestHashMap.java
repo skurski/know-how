@@ -21,6 +21,8 @@ import java.util.Map;
  * 9) HashMap constructors can take initial capacity and load factor
  * 10) Default initial capacity is 16
  * 11) Default load factor is 0.75
+ * 12) Threshold (capacity * loadFactor) is the size at which to resize
+ * (this is the size of an array, not numbers of elements in HashMap)
  */
 public class TestHashMap {
 

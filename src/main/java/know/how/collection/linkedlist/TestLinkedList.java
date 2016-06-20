@@ -10,7 +10,7 @@ import java.util.List;
  * Conclusions:
  * 1) LinkedListImpl is a double linked list structure
  * 2) LinkedListImpl has a pointer to first and last element
- * 3) Inside list we have Vertice<E> object which contains:
+ * 3) Inside list we have Node<E> object which contains:
  * Element<E>, next and prev pointer
  * 4) Constructor can take another collection
  * 5) Initial capacity is 0, list grow one element at a time
