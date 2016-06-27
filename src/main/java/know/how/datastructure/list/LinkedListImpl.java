@@ -1,4 +1,4 @@
-package know.how.datastructure;
+package know.how.datastructure.list;
 
 /**
  * Simple list implementation

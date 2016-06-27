@@ -1,4 +1,4 @@
-package know.how.datastructure;
+package know.how.datastructure.graph;
 
 
 import java.util.ArrayDeque;
