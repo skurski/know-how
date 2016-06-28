@@ -20,13 +20,21 @@ public class AccountRepository implements Container<AbstractAccount> {
         this.compareStrategy = compareStrategy;
     }
 
-    public void addAccount(AbstractAccount account) {
-        // todo: implement comparison
-        accounts.add(account);
+    public void addAccount(final AbstractAccount account) {
+        java.util.Iterator<AbstractAccount> iter = accounts.iterator();
+        int i = 0;
+        while (iter.hasNext() && compareStrategy.compare(iter.next(), account) <= 0) {
+            i++;
+        }
+        accounts.add(i, account);
     }
 
     public int size() {
         return accounts.size();
+    }
+
+    public List<AbstractAccount> getAccounts() {
+        return accounts;
     }
 
     @Override
@@ -57,11 +65,6 @@ public class AccountRepository implements Container<AbstractAccount> {
             }
 
             return accounts.get(currentAccountId++);
-        }
-
-        @Override
-        public void remove(AbstractAccount element) {
-            // todo: implement remove
         }
     }
 }

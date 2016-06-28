@@ -1,17 +1,22 @@
 package know.how.complexpatterns.account;
 
+import know.how.complexpatterns.observer.Notifier;
+
 /**
  * Abstract Account
  */
-public abstract class AbstractAccount {
+public abstract class AbstractAccount extends Notifier {
 
     private int id;
 
     private double balance;
 
-    public AbstractAccount(int id, double balance) {
+    private Type type;
+
+    public AbstractAccount(int id, double balance, Type type) {
         this.id = id;
         this.balance = balance;
+        this.type = type;
     }
 
     public int getId() {
@@ -31,6 +36,10 @@ public abstract class AbstractAccount {
     }
 
     public abstract String showAccount();
+
+    public Type getType() {
+        return type;
+    }
 
     public enum Type {
         CHECKING, SAVING

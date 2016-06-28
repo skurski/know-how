@@ -5,8 +5,8 @@ package know.how.complexpatterns.account;
  */
 public class SavingAccount extends AbstractAccount {
 
-    public SavingAccount(int id, double balance) {
-        super(id, balance);
+    public SavingAccount(int id, double balance, Type type) {
+        super(id, balance, type);
     }
 
 

@@ -9,5 +9,4 @@ public interface Iterator<E> {
 
     E next();
 
-    void remove(E element);
 }

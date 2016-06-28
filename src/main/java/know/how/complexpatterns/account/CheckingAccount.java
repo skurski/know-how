@@ -7,8 +7,8 @@ public class CheckingAccount extends AbstractAccount {
 
     private double overdraft;
 
-    public CheckingAccount(int id, double balance, double overdraft) {
-        super(id, balance);
+    public CheckingAccount(int id, double balance, double overdraft, Type type) {
+        super(id, balance, type);
         this.overdraft = overdraft;
     }
 
