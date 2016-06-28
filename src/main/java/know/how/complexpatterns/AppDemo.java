@@ -3,7 +3,6 @@ package know.how.complexpatterns;
 import know.how.complexpatterns.account.AbstractAccount;
 import know.how.complexpatterns.account.AccountFactory;
 import know.how.complexpatterns.account.AccountRepository;
-import know.how.complexpatterns.decorator.AccountDecorator;
 import know.how.complexpatterns.iterator.Iterator;
 import know.how.complexpatterns.strategy.CompareStrategy;
 
@@ -49,9 +48,7 @@ public class AppDemo {
                 AccountFactory.createAccount(AbstractAccount.Type.SAVING)
         );
         repository.addAccount(
-                new AccountDecorator(
-                        AccountFactory.createAccountWithBalance(AbstractAccount.Type.SAVING, 1234.23)
-                )
+                AccountFactory.createDecoratedAccount(AbstractAccount.Type.SAVING, 1234.23)
         );
         repository.addAccount(
                 AccountFactory.createAccountWithBalance(AbstractAccount.Type.CHECKING, 555.34)

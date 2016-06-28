@@ -10,14 +10,17 @@ public abstract class AbstractAccountDecorator extends AbstractAccount {
 
     private AbstractAccount abstractAccount;
 
-    public AbstractAccountDecorator(AbstractAccount abstractAccount) {
-        super(abstractAccount.getId(), abstractAccount.getBalance(), abstractAccount.getType());
-        this.abstractAccount = abstractAccount;
+    public AbstractAccountDecorator(AbstractBuilder builder) {
+        super(builder);
     }
 
     @Override
     public String showAccount() {
         return abstractAccount.showAccount();
+    }
+
+    public void setAbstractAccount(AbstractAccount abstractAccount) {
+        this.abstractAccount = abstractAccount;
     }
 
     public AbstractAccount getAbstractAccount() {

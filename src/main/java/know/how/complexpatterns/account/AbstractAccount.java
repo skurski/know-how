@@ -13,10 +13,10 @@ public abstract class AbstractAccount extends Notifier {
 
     private Type type;
 
-    public AbstractAccount(int id, double balance, Type type) {
-        this.id = id;
-        this.balance = balance;
-        this.type = type;
+    public AbstractAccount(AbstractBuilder builder) {
+        this.id = builder.id;
+        this.balance = builder.balance;
+        this.type = builder.type;
     }
 
     public int getId() {
@@ -39,6 +39,21 @@ public abstract class AbstractAccount extends Notifier {
 
     public Type getType() {
         return type;
+    }
+
+    public static abstract class AbstractBuilder {
+        private int id;
+        private double balance;
+        private Type type;
+        // additional fields...
+
+        public AbstractBuilder(int id, double balance, Type type) {
+            this.id = id;
+            this.balance = balance;
+            this.type = type;
+        }
+
+        public abstract AbstractAccount build();
     }
 
     public enum Type {

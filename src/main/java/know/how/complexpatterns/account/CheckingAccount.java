@@ -7,9 +7,9 @@ public class CheckingAccount extends AbstractAccount {
 
     private double overdraft;
 
-    public CheckingAccount(int id, double balance, double overdraft, Type type) {
-        super(id, balance, type);
-        this.overdraft = overdraft;
+    public CheckingAccount(Builder builder) {
+        super(builder);
+        this.overdraft = builder.overdraft;
     }
 
     public double getOverdraft() {
@@ -18,6 +18,20 @@ public class CheckingAccount extends AbstractAccount {
 
     public void setOverdraft(double overdraft) {
         this.overdraft = overdraft;
+    }
+
+    public static class Builder extends AbstractBuilder {
+        private double overdraft;
+
+        public Builder(int id, double balance, Type type, double overdraft) {
+            super(id, balance, type);
+            this.overdraft = overdraft;
+        }
+
+        @Override
+        public AbstractAccount build() {
+            return new CheckingAccount(this);
+        }
     }
 
     @Override
