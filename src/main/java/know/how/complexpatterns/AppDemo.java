@@ -9,7 +9,7 @@ import know.how.complexpatterns.strategy.CompareStrategy;
 /**
  * Demo Application that illustrate usage of various design patterns
  *
- * List used of design patterns:
+ * List of used design patterns:
  * 1) Factory Method -> for creating accounts
  * 2) Iterator -> custom iterator to iterate through accounts repository
  * 3) Decorator -> to add functionality to accounts
