@@ -90,9 +90,12 @@ public class Tasks {
             while (array[j] == 1) j--;
 
             if (i < j) {
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
+//                int temp = array[i];
+//                array[i] = array[j];
+//                array[j] = temp;
+                array[i] = array[i] ^ array[j];
+                array[j] = array[i] ^ array[j];
+                array[i] = array[i] ^ array[j];
             }
         }
 
