@@ -6,19 +6,23 @@ import java.util.Map;
 /**
  * See how the TreeMap works inside
  * TreeMapImpl is a copy of java.util.TreeMap
- * Only for educational purpose!
- * <p/>
+ *
  * Conclusions:
- * 1) TreeMap can't take null keys but value can be null
- * 2) If tree is empty, element is put as root
- * 3) If tree is not empty, comparator (compare method) is used to
- * compare keys, if no comparator exists then compareTo method of keys objects
- * is used and new entry object is inserted as left or right child of the parent
- * 4) If no Comparator<K> or Comparable<K> then exception is thrown
- * 5) Constructor can take Comparator or Map object or SortedMap obj
- * 6) Entry obj that is created inside TreeMap contains:
- * key, value, parent, left, right, color (boolean - black or red)
- * 7) TreeMap is balanced binary tree structure, red - black tree
+ * => TreeMap can't take NULL keys (throws NullPointerException)
+ * => TreeMap can take NULL value
+ * => If tree is empty, element is put as root
+ * => If we put ( V put(K key, V value) ) new pair with the key that already exists in TreeMap,
+ *    the value will be override and previous value will be return, if key doesn't exist then null will be returned
+ * => If tree is not empty, comparator (compare method) is used to compare keys, if no comparator exists then
+ *    compareTo method of keys objects is used (key is cast to Comparable type) and new entry object is inserted as
+ *    left or right child of the parent
+ * => If no Comparator<K> or Comparable<K> then exception is thrown (ClassCastException)
+ * => Constructor can take Comparator or Map object or SortedMap obj
+ * => Entry obj that is created inside TreeMap contains:
+ *    key, value, reference to parent, reference to left, reference to right, boolean color (black = true)
+ * => TreeMap is balanced binary tree structure, red - black tree
+ * => After insertion of new pair the fixAfterInsertion() method is executed to optimize the tree (entries are mark
+ *    with color)
  */
 public class TestTreeMap {
 
