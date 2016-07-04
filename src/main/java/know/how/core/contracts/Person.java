@@ -110,7 +110,7 @@ public class Person implements Comparable<Person> {
             if (this.expenses[i] > expenses[i]) return -1;
             if (this.expenses[i] < expenses[i]) return 1;
         }
-        
+
         return 0;
     }
 
