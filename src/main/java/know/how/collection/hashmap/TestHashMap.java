@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * Test how HashMap works inside
  * HashMapImpl is a copy of java.util.HashMap
- * 
+ *
  * Conclusions:
  * 1) HashMap can take null keys and null values
  * 2) The object with the same key will be overridden

@@ -34,8 +34,26 @@ public class Bitwise {
     }
 
     public static boolean checkIfNumbersHasOppositeSigns(int a, int b) {
-
         return (a ^ b) < 0; // true if a and b have opposite signs
+    }
+
+    public static void testShiftBits() {
+        int a = 1;
+        System.out.println("Decimal a: " + a + ", binary a: " + Integer.toBinaryString(a));
+        int b = a << 4; //16
+        int c = b >> 2; // 4
+
+        System.out.println("Decimal b: " + b + ", binary b: " + Integer.toBinaryString(b) + ", decimal c: " + c + ", " +
+                "binary c: " + Integer.toBinaryString(c));
+
+        int e = 8;
+        System.out.println("Decimal e: " + e + ", binary e: " + Integer.toBinaryString(e));
+
+        int d = -8;
+        System.out.println("Decimal d: " + d + ", binary d: " + Integer.toBinaryString(d));
+
+        int f = -8 << 5;
+        System.out.println("Decimal f: " + f + ", binary f: " + Integer.toBinaryString(f));
     }
 
     public static void main(String[] args) {
@@ -47,9 +65,6 @@ public class Bitwise {
         System.out.println("Number 25 i -34 has opposite signs: " + checkIfNumbersHasOppositeSigns(25, -34));
         System.out.println("Number -34 i -34 has opposite signs: " + checkIfNumbersHasOppositeSigns(-34, -34));
 
-        //shift
-        int a = 1;
-        int b = a << 4;
-        System.out.println("b: " + b);
+        testShiftBits();
     }
 }
