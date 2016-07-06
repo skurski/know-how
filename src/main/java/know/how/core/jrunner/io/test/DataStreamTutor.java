@@ -12,7 +12,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class DataStreamTutor {

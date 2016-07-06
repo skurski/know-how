@@ -10,7 +10,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class ReaderWriterTutor {

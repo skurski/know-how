@@ -5,7 +5,6 @@ import org.junit.Test;
 import java.util.Calendar;
 import java.util.Locale;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
 
 public class FormatNumberTutor {

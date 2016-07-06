@@ -8,7 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.assertFalse;
 
 /**

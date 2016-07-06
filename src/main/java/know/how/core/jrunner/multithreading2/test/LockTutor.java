@@ -6,7 +6,6 @@ import java.util.Date;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-import static org.junit.Assert.*;
 import static org.junit.Assert.fail;
 
 public class LockTutor {
