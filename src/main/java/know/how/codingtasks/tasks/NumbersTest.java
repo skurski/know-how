@@ -1,4 +1,4 @@
-package know.how.core.tasks;
+package know.how.codingtasks.tasks;
 
 import org.junit.Before;
 import org.junit.Test;

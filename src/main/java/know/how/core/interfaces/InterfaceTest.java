@@ -1,4 +1,4 @@
-package know.how.core.classes.interfaces;
+package know.how.core.interfaces;
 
 /**
  * We can create class inside interface and other interfaces.

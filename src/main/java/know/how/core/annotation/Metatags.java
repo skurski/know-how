@@ -1,6 +1,10 @@
 package know.how.core.annotation;
 
 import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 @ClassPreamble (
    author = "John Doe",
@@ -29,6 +33,8 @@ public class Metatags
    String[] reviewers();
 }
 
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
 @interface UserInfo {
 	String name();
 	String surname() default "peter";

@@ -1,4 +1,4 @@
-package know.how.core.tasks;
+package know.how.codingtasks.tasks;
 
 /*
 	Write a function that, given a list and a target sum, 

@@ -1,5 +1,9 @@
 package know.how.core.finalvariables;
 
+/**
+ * FinalVariable class is loaded to JVM memory after one of the threads increment "i" and request to create instance of
+ * FinalVariable, this is why the value of "var" will contain "1", after creation it cannot be changed (it's constant)
+ */
 public class TestFinalVariable extends Thread {
 	static int i = 0;
 
@@ -25,8 +29,7 @@ public class TestFinalVariable extends Thread {
 }
 
 class FinalVariable {
-	private static final String var = "this cannot be changed "
-			+ TestFinalVariable.i;
+	private static final String var = "this cannot be changed " + TestFinalVariable.i;
 
 	public void valueOfFinalVariable() {
 		System.out.println(var);

@@ -1,4 +1,4 @@
-package know.how.core.classes.interfaces;
+package know.how.core.interfaces;
 
 
 public class CheckInterface implements InterfaceTest {
