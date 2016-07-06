@@ -27,7 +27,7 @@ public class Bitwise {
      * @return
      */
     public static boolean checkIfNumberIsOdd(int x) {
-        if ((x & 1) == 0) {
+        if ((x & 1) == 1) {
             return true;
         }
         return false;

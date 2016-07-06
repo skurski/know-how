@@ -48,14 +48,14 @@ public class SortingTest {
 
     @Test
     public void quickSortTest() {
-        int[] res = Algorithm.sortWithQuickSort(test);
-        System.out.println(Arrays.toString(res));
-        Assert.assertArrayEquals(correct, res);
+        Algorithm.quickSort(test,0, test.length - 1);
+        System.out.println(Arrays.toString(test));
+        Assert.assertArrayEquals(correct, test);
     }
 
     @Test
-    public void quickSortSimplerTest() {
-        Algorithm.quickSortSimpler(test,0,test.length-1);
+    public void mergeSortTest() {
+        Algorithm.mergeSort(test,0, test.length - 1);
         System.out.println(Arrays.toString(test));
         Assert.assertArrayEquals(correct, test);
     }

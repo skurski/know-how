@@ -1,11 +1,15 @@
 package know.how.sorting;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 /**
- * Simple sorting algorithms
+ * Sorting Algorithms:
+ * 1. Bubble Sort
+ * 2. Selection Sort
+ * 3. Insertion Sort
+ * 4. Counting Sort
+ * 5. Quick Sort
+ * 6. Merge Sort
  */
 public class Algorithm {
 
@@ -76,68 +80,78 @@ public class Algorithm {
         return array;
     }
 
-    public static int[] sortWithQuickSort(int[] array) {
-        quickSort(array, 0, array.length - 1);
-        return array;
-    }
+    public static void quickSort(int[] array, int low, int high) {
+        int pivot = array[low];
+        int i = low;
+        int j = high;
 
-    private static void quickSort(int[] array, int iStart, int iEnd) {
-        if (iStart < iEnd) {
-            int pivot = partition(array, iStart, iEnd);
-            quickSort(array, iStart, pivot);
-            quickSort(array, pivot + 1, iEnd);
-        }
-    }
-
-    private static int partition(int[] array, int iStart, int iEnd) {
-        int pivot = array[iStart];
-
-        while (true) {
-            while (array[iStart] < pivot) iStart++;
-            while (array[iEnd] > pivot) iEnd--;
-
-            if (iStart < iEnd) {
-                int temp = array[iStart];
-                array[iStart] = array[iEnd];
-                array[iEnd] = temp;
-                iStart++;
-                iEnd--;
-            } else {
-                break;
-            }
-        }
-        return iEnd;
-    }
-
-    public static void quickSortSimpler(int[] array, int head, int tail) {
-        if (head >= tail)
-            return;
-
-        int pivot = array[head];
-        int i = head;
-        int j = tail;
-        while (true) {
+        while (i <= j) {
             while (array[i] < pivot) i++;
             while (array[j] > pivot) j--;
 
-            if (i >= j)
-                break;
-
-            int temp = array[i];
-            array[i] = array[j];
-            array[j] = temp;
-            i++;
-            j--;
+            if (i <= j) {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+                i++;
+                j--;
+            }
         }
-        pivot = j;
 
-        quickSortSimpler(array, head, pivot);
-        quickSortSimpler(array, pivot + 1, tail);
+        if (i < high) {
+            quickSort(array, i, high);
+        }
+        if (low < j) {
+            quickSort(array, low, j);
+        }
+    }
+
+    public static void mergeSort(int[] array, int low, int high) {
+        if (low < high) {
+            int middle = (low + high) / 2;
+            mergeSort(array, low, middle);
+            mergeSort(array, middle+1, high);
+            mergeParts(array, low, middle, high);
+        }
+    }
+
+    private static void mergeParts(int[] array, int low, int middle, int high) {
+        int[] tempArr = new int[array.length];
+        for (int i=0; i<=high; i++) {
+            tempArr[i] = array[i];
+        }
+
+        int i = low;
+        int j = middle + 1;
+        int k = low;
+
+        while (i <= middle && j <= high) {
+            if (tempArr[i] <= tempArr[j]) {
+                array[k] = tempArr[i];
+                i++;
+            } else {
+                array[k] = tempArr[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i <= middle) {
+            array[k] = tempArr[i];
+            k++;
+            i++;
+        }
+
+//        while (j <= high) {
+//            array[k] = tempArr[j];
+//            k++;
+//            j++;
+//        }
     }
 
     public static void main(String[] args) {
-        Arrays.sort(new Object[]{new Object(), new Object()});
-        Collections.sort(new ArrayList<String>());
+        int[] array = {9,8,7,3,2,1};
+        mergeSort(array, 0, array.length-1);
+        System.out.println(Arrays.toString(array));
     }
-
 }
