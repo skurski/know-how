@@ -1,4 +1,4 @@
-package know.how.javah;
+package know.how.core.javah;
 
 /**
  * JDK libraries: (JDK/bin)

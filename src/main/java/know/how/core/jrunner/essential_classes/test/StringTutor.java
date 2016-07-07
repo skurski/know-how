@@ -37,7 +37,7 @@ public class StringTutor {
 	}
 	
     /**
-    * Make sure that the welcome greeting of the form
+    * Make sure that the welcome print of the form
     * Hi, Ivan Ivanov!
     * or
     * Hi, James Johnes!
