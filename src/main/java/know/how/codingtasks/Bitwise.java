@@ -56,6 +56,23 @@ public class Bitwise {
         System.out.println("Decimal f: " + f + ", binary f: " + Integer.toBinaryString(f));
     }
 
+    /**
+     * Signed shifts: >> (right shift) , << (left shift)
+     * Unsigned shift: >>> (right shift)
+     *
+     * Right shift: cuts bits from right, moves bits from left to right
+     * Left shift: adds bits (0) to right end, moves bits from right to left
+     * Signed: Keeps the bits with sign (1 (ones) for negatives and 0 (zeros) for positives)
+     * Unsigned: only right, moves bits to right, fill leading bits with zeros (doesn't keep sign)
+     */
+    public static void testSignedAndUnsignedShift() {
+        int a = -8;
+        int b = a >> 2;
+        int c = a >>> 2;
+
+        System.out.println("Original: " + a + ", -8 >> 2: " + b + ", -8 >>> 2: " + c);
+    }
+
     public static void main(String[] args) {
 
         swapElements(10, 22);
@@ -66,5 +83,7 @@ public class Bitwise {
         System.out.println("Number -34 i -34 has opposite signs: " + checkIfNumbersHasOppositeSigns(-34, -34));
 
         testShiftBits();
+
+        testSignedAndUnsignedShift();
     }
 }
