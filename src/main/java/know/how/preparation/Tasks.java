@@ -104,15 +104,16 @@ public class Tasks {
 
     // binary search implementation
     public static int findIndexOfNumberInArray(int[] array, int value) {
-        int start = 0;
-        int end = array.length - 1;
-        while (start <= end) {
-            int middle = (start + end) / 2;
+        int low = 0;
+        int high = array.length -1;
+
+        while (low <= high) {
+            int middle = (low + high) / 2;
 
             if (array[middle] < value) {
-                start = middle + 1;
+                low = middle + 1;
             } else if (array[middle] > value) {
-                end = middle - 1;
+                high = middle - 1;
             } else {
                 return middle;
             }
